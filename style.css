@@ -1,0 +1,398 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  overflow: hidden;
+  background: #b5c755;
+  background: radial-gradient(ellipse at center, #b5c755 0%, #8fb467 50%);
+}
+
+.post {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 12px;
+}
+
+.post__link {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.planet {
+  width: 300px;
+  height: 300px;
+  border-radius: 100%;
+  position: relative;
+}
+
+.path-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
+}
+
+.outline {
+  fill: transparent;
+  stroke: #4d3034;
+  fill: #82b765;
+  stroke-width: 2;
+  position: relative;
+  z-index: 5;
+}
+
+
+/* ----- */
+/* Cloud */
+/* ----- */
+
+.cloud-boundary {
+  width: 100px;
+  height: 270px;
+  position: absolute;
+  top: calc(-50% - 30px);
+  left: 50%;
+  transform: translateX(-50%);
+  transform-origin: bottom center;
+  z-index: -2;
+  will-change: auto;
+}
+
+.cloud-boundary__marker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1px;
+  height: 1px;
+}
+
+.cloud {
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.cloud-svg {
+  fill: #ffffff;
+}
+
+
+
+/* ---- */
+/* Rain */
+/* ---- */
+
+.rain {
+  width: calc(100% - 20px);
+  height: 100%;
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+
+.rain--active {
+  opacity: 0.6;
+}
+
+.rain__drops-top {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/49240/rain.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+  opacity: 1;
+}
+
+.rain__drops-bottom {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/49240/rain.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+  opacity: 1;
+}
+
+
+
+/* ---- */
+/* Bike */
+/* ---- */
+
+.bike {
+  position: absolute;
+  top: -40px;
+  left: -20px;
+  width: 40px;
+  height: 80px;
+  z-index: -2;
+  transform: rotate(0);
+  will-change: auto;
+}
+
+.bike__marker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1px;
+  height: 1px;
+}
+
+#bm {
+  position: relative;
+}
+
+.bike svg {
+  z-index: 20;
+  position: relative;
+  will-change: auto;
+}
+
+.umbrella-animation {
+  position: absolute;
+  top: -12px;
+  left: calc(50% + 2px);
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 10;
+}
+
+.light {
+  position: absolute;
+  top: 18px;
+  left: 30px;
+  width: 0;
+  z-index: 10;
+  height: 10px;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/49240/light.png) 0 0 no-repeat;
+  background-size: 22px 10px;
+  transition: width 0s 0.3s, opacity 0.3s;
+  transform-origin: center left;
+  opacity: 0;
+}
+
+.light--active {
+  width: 22px;
+  transition: width 0.2s, opacity 0s;
+  opacity: 0.6;
+}
+
+
+
+/* ------- */
+/* Scenery */
+/* ------- */
+
+.tree-01 {
+  width: 40px;
+  position: absolute;
+  top: 5px;
+  left: -5px;
+  transform: rotate(-41deg);
+  z-index: -3;
+  fill: #1f6219;
+}
+
+.tree-02 {
+  width: 30px;
+  position: absolute;
+  top: 6px;
+  left: 16px;
+  transform: rotate(-41deg);
+  z-index: -1;
+  fill: #1a5215;
+}
+
+.tree-03 {
+  width: 40px;
+  position: absolute;
+  top: 225px;
+  left: 75px;
+  transform: rotate(-161deg);
+  z-index: -3;
+  fill: #1f6219;
+}
+
+.tree-04 {
+  width: 30px;
+  position: absolute;
+  top: 225px;
+  left: 98px;
+  transform: rotate(-169deg);
+  z-index: -1;
+  fill: #1a5215;
+}
+
+.tree-05 {
+  width: 30px;
+  position: absolute;
+  top: 24px;
+  left: 225px;
+  transform: rotate(-304deg);
+  z-index: -1;
+  fill: #1a5215;
+}
+
+.mountain-1 {
+  fill: #97b45c;
+  position: absolute;
+  top: -18px;
+  left: 80px;
+  transform: rotate(40deg);
+  width: 60px;
+  z-index: -5;
+}
+
+.mountain-2 {
+  fill: #97b45c;
+  position: absolute;
+  top: -5px;
+  left: 119px;
+  transform: rotate(56deg);
+  width: 60px;
+  z-index: -5;
+}
+
+.mountain-4 {
+  fill: #97b45c;
+position: absolute;
+top: 156px;
+left: 182px;
+transform: rotate(77deg);
+width: 60px;
+z-index: -5;
+}
+
+.mountain-5 {
+  fill: #97b45c;
+  position: absolute;
+  top: 180px;
+  left: 159px;
+  transform: rotate(10deg);
+  width: 60px;
+  z-index: -5;
+}
+
+.rock-1 {
+  position: absolute;
+top: 127px;
+left: -8px;
+width: 20px;
+transform: rotate(-90deg);
+z-index: -1;
+fill: #6a6a6a;
+}
+
+.rock-2 {
+  position: absolute;
+  top: 199px;
+  left: 198px;
+  width: 20px;
+  transform: rotate(-206deg);
+  z-index: -1;
+  fill: #6a6a6a;
+}
+
+.rotating-fog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  fill: #fff;
+  opacity: 0.05;
+  width: 92%;
+  height: 92%;
+  animation: spin;
+  animation-duration: 40s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  z-index: -10;
+}
+
+@keyframes spin {
+  0% {transform: translate(-50%, -50%) rotate(360deg);}
+  100% {transform: translate(-50%, -50%) rotate(0deg);}
+}
+
+.grass-1 {
+  position: absolute;
+  top: 100px;
+  left: -4px;
+  transform: rotate(-86deg);
+  width: 10px;
+  height: 20px;
+  fill: #4d3034;
+  z-index: -10;
+}
+
+.grass-2 {
+  position: absolute;
+  top: 209px;
+  left: 46px;
+  transform: rotate(-156deg);
+  width: 10px;
+  height: 20px;
+  fill: #4d3034;
+  z-index: -10;
+}
+
+.grass-3 {
+  position: absolute;
+  top: 109px;
+  left: 235px;
+  transform: rotate(-266deg);
+  width: 10px;
+  height: 20px;
+  fill: #4d3034;
+  z-index: -10;
+}
+
+
+/* ------------ */
+/* Instructions */
+/* ------------ */
+
+.instructions {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+}
+
+.instructions__item {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  padding: 4px 10px;
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.instructions__item:first-child {
+  margin-top: 0;
+}
